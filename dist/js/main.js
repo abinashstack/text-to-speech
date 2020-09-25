@@ -10,7 +10,7 @@ const rate=document.querySelector('#rate');
 const rateValue=document.querySelector('#rate-value');
 const pitch=document.querySelector('#pitch');
 const pitchValue=document.querySelector('#pitch-value');
-
+const body=document.querySelector('body');
 //init voices array
 
 let voices=[];
@@ -34,16 +34,25 @@ if(synth.onvoiceschanged !== undefined){
 }
 //speak
 const speak=()=>{
+
+  
     if(synth.speaking){
         console.error('Already speaking ...');
         return;
 
     }
-    if(textInput.value !==''){
+    if(textInput.value !== ''){
+
+        body.style.background='#141414 url(../img/wave.gif)';
+        body.style.background='repeat-x';
+        body.style.backgroundSize='100% 100%';
+
+
         const speakText=new SpeechSynthesisUtterance(textInput.value);
         //speak 
         speakText.onend=e=>{
             console.log('Done Speaking');
+            body.style.background='#141414';
 
         }
         speakText.onerror=e=>{
@@ -53,7 +62,9 @@ const speak=()=>{
         const selectedVoice = voiceSelect.selectedOptions[0].getAttribute('data-name');
         voices.forEach(voice=>{
             if(voice.name === selectedVoice){
-                speakText.voice=voice;
+                speakText.voice=voice;  
+                  body.style.background='#141414';
+            
 
             }
         });
