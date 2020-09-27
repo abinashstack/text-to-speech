@@ -1,7 +1,12 @@
 ## What is this ??
 
 * A text-to-speech and translation-App
-* Tools and Languages Used :Javascript,HTML,Bootstrap
+<br/>
+
+## Tools and Languages Used :
+* Javascript,HTML,Bootstrap
+* Visual Studio Code
+* window.Speech api
 
 ## Licence
 
